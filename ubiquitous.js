@@ -143,4 +143,18 @@ console.log(m === n) // -> false (strict equality)
 // !== - strict inequality
 
 
-// Logical operators
+//// Logical operators
+// && - and
+// || - or
+// ! - not
+// EG:
+const o = true
+const p = false
+console.log(o && p) // -> false
+console.log(o || p) // -> true
+console.log(!o) // -> false
+
+// Can get weird with types that are not boolean
+// If we're not using boolean values with our logicial operators, we need to be careful, because we might get some unexpected results
+// EG:
+console.log(!false && "hello") // -> 'hello' (truthy value) - because !false is true, it returns the second value

@@ -80,3 +80,32 @@ const a = 1
 const b = '1'
 console.log(a == b) // -> true (loose equality)
 // This is because == will try to convert the values to the same type before comparing them
+
+
+//// Type Conversion
+// Type conversion is when you explicitly convert a value to a different type
+// EG:
+const c = '2345.6';
+const d = 2;
+
+console.log(Number(c) + d) // -> 2347.6
+// This is because Number() will convert the string to a number before adding it to the other number
+
+// Can also use parseInt() and parseFloat() to convert strings to numbers
+// Good for grabbing the int or float from a string EG if it has px or a currency symbol
+// EG:
+const e = '2345px';
+const f = '2345.6$';
+console.log(parseInt(e)) // -> 2345
+console.log(parseFloat(e)) // -> 2345.6
+
+// Can convert numbers to strings using String() or .toString()
+// EG:
+const g = 2345;
+const h = 2345.6;
+console.log(String(g) + String(2345.6)) // -> '23452345.6'
+// Or
+console.log(g.toString() + h.toString()) // -> '23452345.6'
+
+//// Comparison operators
+

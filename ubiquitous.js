@@ -355,3 +355,87 @@ for (let i = 0; i < arr13.length; i++) {
     }
     console.log(arr13[i])
 } // This will print 1 and 2 and then break out of the loop
+
+
+//// Objects
+const obj = {
+    name: 'John',
+    age: 30,
+    isMarried: true,
+    hobbies: ['reading', 'gaming'],
+    address: {
+        city: 'New York',
+        state: 'NY'
+    },
+    sayHello: function() {
+        console.log('Hello')
+    }
+}
+
+obj.age = "tim" // This will change the age to 'tim'
+console.log(obj.age) // -> 'tim'
+
+// Add a new property to the object using dot notation
+obj.email = 'email'
+console.log(obj.email) // -> 'email'
+
+// Also can use [] to access properties
+obj['name'] = 'Jane' // This will change the name to 'Jane'
+
+// Looping through an object
+console.log(Object.values(obj)) // -> ['Jane', 'tim', true, Array(2), Object, ƒ]
+
+// To get the keys of an object, we can use Object.keys()
+console.log(Object.keys(obj)) // -> ['name', 'age', 'isMarried', 'hobbies', 'address', 'sayHello', 'email']
+
+// Using a for-in loop to loop through an object
+for (let key in obj) {
+    console.log(key, obj[key]) // This will print the key and the value of the object
+}
+
+// So IN for an object but OF for an array 
+
+
+const obj2 = {
+    hairColour : 'brown',
+    arr: [1, 2, 3]
+}
+
+const obj3 = {
+    ...obj, // This will copy the properties of obj into obj3
+    ...obj2, // This will copy the properties of obj2 into obj3
+    name: 'John'
+}
+console.log(obj3) // -> {name: 'John', age: 'tim', isMarried: true, hobbies: Array(2), address: Object, hairColour: 'brown', arr: Array(3)}
+
+
+// One thing to look out for when we're using nested objects and the spread operator because even though we're doing a deep copy of the object, the nested objects are still references to the original object
+// So if we change the nested object, it will change the original object as well
+// EG:
+const obj4 = {
+    name: 'John',
+    address: {
+        city: 'New York',
+        state: 'NY'
+    }
+}
+const obj5 = {
+    ...obj4
+}
+obj5.address.city = 'Los Angeles' // This will change the city of obj4 as well
+console.log(obj4.address.city) // -> 'Los Angeles' (changed the original object)
+
+// Basically just be careful with reference types 
+
+// Destructuring objects
+const obj6 = {
+    name: 'John',
+    age: 30,
+    isMarried: true
+}
+
+const { name, age, isMarried } = obj6 // This will destructure the object and assign the values to the variables
+console.log(name, age, isMarried) // -> 'John' 30 true
+// We can also use the spread operator to get the rest of the object
+const { name: name2, ...obj7 } = obj6 // This will destructure the object and assign the values to the variables
+console.log(name2, obj7) // -> 'John' {age: 30, isMarried: true}

@@ -213,3 +213,74 @@ switch (value2) {
 // This is called "fall through" and can be useful in some cases, but be careful with it
 
 //// Arrays
+const arr = [1, 2, 3, true] // Mutable - even if we use const, we can still change the contents of the array (because we're not changing the reference to the array, we're just changing the contents of the array)
+
+const arr2 = new Array(5) // Creates an array of length 5, but all the values are undefined
+
+const arr3 = Array.from('hello') // Creates an array from a string
+console.log(arr3) // -> ['h', 'e', 'l', 'l', 'o']
+
+arr3[0] = 'Y'
+console.log(arr3) // -> ['Y', 'e', 'l', 'l', 'o']
+
+console.log(arr3[arr3.length - 1]) // -> 'o' (last element of the array)
+
+// If we assign to an index that is out of bounds, it will create a new element in the array 
+// AND all the elements in between will be undefined
+// EG:
+arr3[10] = 'hello'
+console.log(arr3) // -> ['Y', 'e', 'l', 'l', 'o', <5 empty items>, 'hello']
+// This is because arrays are sparse in JavaScript, so we can have empty items in the array
+
+// Pushing to an array
+arr3.push('world') // Adds 'world' to the end of the array
+console.log(arr3) // -> ['Y', 'e', 'l', 'l', 'o', <5 empty items>, 'hello', 'world']
+
+// Popping from an array
+arr3.pop() // Removes the last element of the array
+console.log(arr3) // -> ['Y', 'e', 'l', 'l', 'o', <5 empty items>, 'hello']
+
+// Shifting from an array
+arr3.shift() // Removes the first element of the array
+console.log(arr3) // -> ['e', 'l', 'l', 'o', <5 empty items>, 'hello']
+
+// Unshifting to an array
+arr3.unshift('Y') // Adds 'Y' to the beginning of the array
+console.log(arr3) // -> ['Y', 'e', 'l', 'l', 'o', <5 empty items>, 'hello']
+
+// Splicing an array
+arr3.splice(2, 1) // Removes 1 element from index 2
+console.log(arr3) // -> ['Y', 'e', 'l', 'o', <5 empty items>, 'hello']
+
+// IndexOf
+console.log(arr3.indexOf('l')) // -> 2 (first index of 'l')
+console.log(arr3.lastIndexOf('l')) // -> 3 (last index of 'l')
+
+// Includes
+console.log(arr3.includes('l')) // -> true (does the array include 'l')
+console.log(arr3.includes('x')) // -> false (does the array include 'x')
+
+// Concat
+const arr4 = [1, 2, 3]
+const arr5 = [4, 5, 6]
+const arr6 = arr4.concat(arr5) // Concatenates the two arrays
+console.log(arr6) // -> [1, 2, 3, 4, 5, 6]
+// This does not change the original arrays, it creates a new array
+
+// Join
+const arr7 = ['hello', 'world']
+const str = arr7.join(' ') // Joins the array into a string with a space in between
+console.log(str) // -> 'hello world'
+// This does not change the original array, it creates a new string
+// We can also use other characters to join the array
+const str2 = arr7.join(',') // Joins the array into a string with a comma in between
+console.log(str2) // -> 'hello,world'
+
+// Slicing an array with adding elements
+const arr8 = [1, 2, 3, 4, 5]
+const arr9 = arr8.slice(1, 3) // Slices the array from index 1 to index 3 (not inclusive)
+console.log(arr9) // -> [2, 3]
+
+
+// Array Destructuring
+const arr10 = [1, 2, 3]

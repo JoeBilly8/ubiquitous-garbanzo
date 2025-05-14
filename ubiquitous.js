@@ -491,3 +491,26 @@ for (let value of mySet2) {
 }
 
 
+//// Maps
+// A map is a collection of key-value pairs
+// It is similar to an object, but it allows any type of key (not just strings)
+const myMap = new Map() // Creates a new empty map
+const myMap2 = new Map([['key1', 'value1'], ['key2', 'value2']]) // Creates a new map with the key-value pairs
+
+myMap.set('key1', 'value10') // Sets the value of key1 to value10
+myMap.delete('key1') // Deletes key1 from the map
+myMap.get('key2') // Gets the value of key2
+myMap.has('key1') // Checks if key1 exists in the map
+myMap.clear() // Clears the map
+
+// Looping through a map
+for (let [key, value] of myMap2) {
+    console.log(key, value) // This will print each key-value pair in the map
+    if (key === 'key1') {
+        console.log(value) // This will print the value of key1
+    }
+}
+
+// Convert the map to an array
+const arr14 = Array.from(myMap2) // Converts the map to an array of key-value pairs
+console.log(arr14) // -> [['key1', 'value1'], ['key2', 'value2']]

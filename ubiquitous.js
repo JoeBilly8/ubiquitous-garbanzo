@@ -1,4 +1,4 @@
-// Ubiquitous JS
+//////// Ubiquitous JS
 
 //// String interpolation
 const v = 64
@@ -395,7 +395,6 @@ for (let key in obj) {
 
 // So IN for an object but OF for an array 
 
-
 const obj2 = {
     hairColour : 'brown',
     arr: [1, 2, 3]
@@ -439,3 +438,56 @@ console.log(name, age, isMarried) // -> 'John' 30 true
 // We can also use the spread operator to get the rest of the object
 const { name: name2, ...obj7 } = obj6 // This will destructure the object and assign the values to the variables
 console.log(name2, obj7) // -> 'John' {age: 30, isMarried: true}
+
+
+//// Shallow copy vs deep copy
+// A shallow copy is when we create a new object, but the properties of the object are still references to the original object
+// A deep copy is when we create a new object, and the properties of the object are new objects as well
+// So if we change the properties of the new object, it will not change the original object
+// EG:
+const obj8 = {
+    name: 'John',
+    address: {
+        city: 'New York',
+        state: 'NY'
+    }
+}
+const obj9 = { ...obj8 } // This will create a shallow copy of the object
+obj9.address.city = 'Los Angeles' // This will change the city of obj8 as well
+console.log(obj8.address.city) // -> 'Los Angeles' (changed the original object)
+// To create a deep copy, we can use JSON.parse(JSON.stringify(obj)) or use a library like lodash
+// EG:
+const obj10 = {
+    name: 'John',
+    address: {
+        city: 'New York',
+        state: 'NY'
+    }
+}
+const obj11 = JSON.parse(JSON.stringify(obj10)) // This will create a deep copy of the object
+obj11.address.city = 'Los Angeles' // This will not change the city of obj10
+console.log(obj10.address.city) // -> 'New York' (did not change the original object)
+// This is because JSON.parse(JSON.stringify(obj)) will create a new object and all the properties of the object are new objects as well
+
+/* Choosing between shallow and deep copy depends on the specific use case. 
+If you need to modify nested objects independently, a deep copy is necessary. 
+If you only need to modify the top-level object and don't mind sharing references to nested objects, a shallow copy can be more efficient.
+*/
+
+
+//// Sets
+// A set is a collection of unique values
+// It is similar to an array, but it does not allow duplicate values
+const mySet = new Set() // Creates a new empty set
+const mySet2 = new Set([1, 2, 3]) // Creates a new set with the values 1, 2, 3
+mySet.add(1) // Adds 1 to the set
+mySet.delete(1) // Deletes 1 from the set
+mySet.has(1) // Checks if 1 is in the set
+mySet.clear() // Clears the set
+mySet.size // Gets the size of the set
+
+for (let value of mySet2) {
+    console.log(value) // This will print each value in the set
+}
+
+

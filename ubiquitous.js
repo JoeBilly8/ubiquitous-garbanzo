@@ -298,3 +298,60 @@ console.log(arr11) // -> [1, 2, 3, 4, 5, 6]
 const arr12 = [...arr10] // Creates a new array with the values of arr10
 console.log(arr12) // -> [1, 2, 3]
 
+
+// Loops
+// While loop
+while (true) {
+    console.log('hello')
+    break
+}
+
+do {
+    console.log('hello')
+} while (false)
+
+
+// For loop
+for (let i = 0; i < 10; i++) {
+    console.log(i)
+}
+
+// Looping through an array
+const arr13 = [1, 2, 3, 4, 5]
+for (let i = 0; i < arr13.length; i++) {
+    console.log(arr13[i])
+}
+
+// Looping directly over the structure
+for (let value of arr13) {
+    console.log(value)
+} // This will print each value in the array
+// This is called a for-of loop and is useful for looping over arrays and other iterable objects
+
+// If we want to get the index of the value as well, we can use the forEach method
+arr13.forEach((value, index) => {
+    console.log(value, index)
+}) // This will print each value in the array and its index
+
+// Or
+for (let [index, value] of arr13.entries()) {
+    console.log(index, value)
+} // This will print each value in the array and its index
+
+// continue keyword
+// This will skip the current iteration and move on to the next one
+for (let i = 0; i < arr13.length; i++) {
+    if (arr13[i] === 3) {
+        continue
+    }
+    console.log(arr13[i])
+} // This will skip 3 and print the rest of the array
+
+// break keyword
+// This will break out of the loop
+for (let i = 0; i < arr13.length; i++) {
+    if (arr13[i] === 3) {
+        break
+    }
+    console.log(arr13[i])
+} // This will print 1 and 2 and then break out of the loop

@@ -158,3 +158,58 @@ console.log(!o) // -> false
 // If we're not using boolean values with our logicial operators, we need to be careful, because we might get some unexpected results
 // EG:
 console.log(!false && "hello") // -> 'hello' (truthy value) - because !false is true, it returns the second value
+
+
+//// Conditionals
+// if, else if, else
+if (true) {
+    console.log('true')
+} else if (false) {
+    console.log('false')
+} else {
+    console.log('else')
+}
+
+// Unique things in JS
+// If we only have one line in our if statement, we can omit the curly braces
+if (true) console.log('true') // -> 'true'
+// We can also use the ternary operator to do a one line if statement
+// EG:
+const q = true
+const r = false
+const cond = q ? 'true' : 'false' // -> 'true'
+
+// switch statement
+const value = 2
+switch (value) {
+    case 1:
+        console.log('one')
+        break
+    case 2:
+        console.log('two')
+        break
+    case 3:
+        console.log('three')
+        break
+    default:
+        console.log('default')
+        break
+}
+
+// If we don't use break, it will fall through to the next case
+// EG:
+const value2 = 2
+switch (value2) {
+    case 1:
+        console.log('one')
+    case 2:
+        console.log('two')
+    case 3:
+        console.log('three')
+    default:
+        console.log('default')
+}
+// This will print 'two' and 'three' and 'default' because it falls through to the next case
+// This is called "fall through" and can be useful in some cases, but be careful with it
+
+//// Arrays

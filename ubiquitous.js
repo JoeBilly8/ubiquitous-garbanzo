@@ -282,5 +282,19 @@ const arr9 = arr8.slice(1, 3) // Slices the array from index 1 to index 3 (not i
 console.log(arr9) // -> [2, 3]
 
 
-// Array Destructuring
+//// Array destructuring and spread operator
+// Destructuring is when we take an array and assign the values to variables
 const arr10 = [1, 2, 3]
+const [a1, a2, a3] = arr10 // Destructuring the array
+console.log(a1, a2, a3) // -> 1 2 3
+// We can also use the spread operator to get the rest of the array
+const [b1, ...rest] = arr10 // Destructuring the array and getting the rest of the array
+console.log(b1, rest) // -> 1 [2, 3]
+// We can also use the spread operator to create a new array with the values of the old array
+const arr11 = [...arr10, 4, 5, 6] // Creates a new array with the values of arr10 and adds 4, 5, 6 to the end
+console.log(arr11) // -> [1, 2, 3, 4, 5, 6]
+// This is useful for creating a new array with the values of an old array without modifying the old array
+// We can also use the spread operator to copy an array
+const arr12 = [...arr10] // Creates a new array with the values of arr10
+console.log(arr12) // -> [1, 2, 3]
+

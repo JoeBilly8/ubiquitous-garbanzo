@@ -108,4 +108,39 @@ console.log(String(g) + String(2345.6)) // -> '23452345.6'
 console.log(g.toString() + h.toString()) // -> '23452345.6'
 
 //// Comparison operators
+// == - loose equality - this will try to convert the values to the same type before comparing them
+// EG:
+const i = 1
+const j = '1'
+console.log(i == j) // -> true (loose equality)
+// This is because == will try to convert the values to the same type before comparing them
 
+// Another important thing to remember is that null and undefined are loosely equal to each other
+// EG:
+const k = null
+const l = undefined
+console.log(k == l) // -> true (loose equality)
+
+// Another weird one is:
+console.log("1, 2" == [1, 2]) // -> true (loose equality)
+// This is because == will try to convert the array to a string before comparing it
+
+// FOOTNOTE: A ton of bugs in JS are caused by this loose equality/inequality so try to avoid it
+
+
+// === - strict equality - this will not try to convert the values to the same type before comparing them
+// This is the preferred way to compare values in JavaScript - avoids all the weirdness of type coercion
+// EG:
+const m = 1
+const n = '1'
+console.log(m === n) // -> false (strict equality)
+// This is because === will not try to convert the values to the same type before comparing them
+
+// 
+
+
+// != - loose inequality
+// !== - strict inequality
+
+
+// Logical operators

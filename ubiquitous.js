@@ -514,3 +514,6 @@ for (let [key, value] of myMap2) {
 // Convert the map to an array
 const arr14 = Array.from(myMap2) // Converts the map to an array of key-value pairs
 console.log(arr14) // -> [['key1', 'value1'], ['key2', 'value2']]
+
+
+//// Error handling
